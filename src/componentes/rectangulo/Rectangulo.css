@@ -1,0 +1,35 @@
+/*Animacion de entrada*/
+.contenedor-rectangulo {
+    padding: 40px 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.contenedor-rectangulo.activa {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tarjeta-rectangulo {
+    border: none;
+    border-radius: 15px;
+}
+
+.contenido-rectangulo {
+    text-align: center;
+    padding: 60px 120px;
+}
+
+.titulo-rectangulo {
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.texto-rectangulo {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: auto;
+}

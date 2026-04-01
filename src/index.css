@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --azul1: #332a7e;
+    --azulclaro: #69c5ec;
+    --verde: #7cc455;
+    --rosa: #C6C4C0;
+    --celeste: #d7f3fc;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    /* Montserrat normal */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--azul1);
+}
+
+h1,
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    /* Montserrat bold */
+    color: var(--azul1);
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    /* Montserrat negrita */
+    background-color: var(--azulclaro);
+    color: white;
+    /* Contraste fondo */
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--azul1);
+}
+
+.bg-verde {
+    background-color: var(--verde);
+}
+
+.bg-rosa {
+    background-color: var(--rosa);
+}

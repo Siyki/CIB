@@ -1,0 +1,51 @@
+.encabezado-principal {
+    background-color: var(--azul1);
+    padding: 15px 40px;
+}
+
+.contenedor-encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contenedor-logo-cib {
+    display: flex;
+    align-items: center;
+    margin-left: 70px;
+}
+
+.contenedor-logo-programa {
+    display: flex;
+    align-items: center;
+}
+
+.logo-cib {
+    height: 60px;
+}
+
+.logo-programa {
+    height: 55px;
+}
+
+.contenedor-menu {
+    display: flex;
+    justify-content: flex-start;
+    flex-grow: 1;
+    margin-left: 50px;
+}
+
+.menu-navegacion {
+    gap: 45px;
+}
+
+.enlace-menu {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--azulclaro);
+    letter-spacing: 1px;
+}
+
+.enlace-menu:hover {
+    color: white;
+}

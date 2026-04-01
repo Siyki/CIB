@@ -1,0 +1,170 @@
+.contenedor-estadisticas {
+	width: min(1220px, 94%);
+	margin: 28px auto 42px;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(250px, 1fr));
+	gap: 30px;
+}
+
+/* Como está antes de aparecer (animación de entrada)*/
+.tarjeta-estadistica {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Sube a su posición original  (aparece cuando uno hace scroll)*/
+.tarjeta-estadistica.activa {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.boton-imagen-municipio {
+	position: relative;
+	width: 100%;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	border-radius: 14px;
+	overflow: hidden;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boton-imagen-municipio:hover,
+.boton-imagen-municipio:focus-visible {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 22px rgba(25, 36, 61, 0.22);
+}
+
+.boton-imagen-municipio:focus-visible {
+	outline: 3px solid #2c4677;
+	outline-offset: 3px;
+}
+
+.imagen-municipio {
+	width: 100%;
+	height: 210px;
+	object-fit: cover;
+	border-radius: 14px;
+}
+
+/*el hover de la imagen*/
+.capa-ver-estadisticas {
+	position: absolute;
+	inset: 0;
+	background-color: rgba(105, 136, 236, 0.6);
+	/* 40% for better visibility as requested azul claro */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	border-radius: 14px;
+}
+
+.boton-imagen-municipio:hover .capa-ver-estadisticas {
+	opacity: 1;
+}
+
+.texto-hover {
+	color: white;
+	font-weight: 700;
+	font-size: 1.1rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.titulo-municipio {
+	margin: 4px 0 2px;
+	text-align: center;
+	font-size: 1.9rem;
+	line-height: 1.1;
+	text-transform: uppercase;
+	color: #263f6d;
+}
+
+.caja-grafica {
+	width: 100%;
+	background: #69c5ec;
+	/* Celeste as requested */
+	border-radius: 12px;
+	padding: 24px 20px;
+	box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* las barras cuandoe están ocultas*/
+.detalle-estadistica {
+	width: 100%;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+		/*lo que de la la velocidad a la animacion*/
+		opacity 0.6s ease;
+	opacity: 0;
+}
+
+/*Cuando aparecen las barras*/
+.detalle-estadistica.visible {
+	max-height: 1000px;
+	opacity: 1;
+	margin-top: 20px;
+}
+
+.titulo-caja {
+	margin: 0 0 15px;
+	text-align: center;
+	color: #ffffff;
+	font-size: 1.25rem;
+	line-height: 1.25;
+	font-weight: 700;
+	text-transform: none;
+
+}
+
+.texto-caja {
+	margin: 0 0 20px;
+	text-align: center;
+	color: #ffffff;
+	opacity: 0.9;
+	font-size: 0.95rem;
+	line-height: 1.5;
+}
+
+.grafica-wrapper {
+	width: 100%;
+	height: 260px;
+	background: #ffffff;
+	border-radius: 10px;
+	padding: 15px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.imagen-modal {
+	display: none;
+}
+
+@media (max-width: 1080px) {
+	.contenedor-estadisticas {
+		grid-template-columns: repeat(2, minmax(250px, 1fr));
+	}
+}
+
+@media (max-width: 760px) {
+	.contenedor-estadisticas {
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
+
+	.titulo-municipio {
+		font-size: 1.6rem;
+	}
+
+	.titulo-caja {
+		font-size: 1.1rem;
+	}
+}
