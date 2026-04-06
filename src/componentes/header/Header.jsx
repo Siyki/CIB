@@ -2,6 +2,8 @@ import React from "react"
 import "./Header.css"
 import logo_ehr from "../../imagenes/logo-enfermedadblanco.png"
 import logo_cib from "../../imagenes/logo_CIBblanco.png"
+import { Link } from "react-router-dom"
+
 
 export const Header = () => {
   return (
@@ -11,9 +13,9 @@ export const Header = () => {
 
           {/* Logo izquierda */}
           <div className="contenedor-logo-cib">
-            <a href="/">
+            <Link to="/">
               <img src={logo_cib} className="logo-cib" alt="logo corporación CIB" />
-            </a>
+            </Link>
           </div>
 
           {/* Botón responsive */}
@@ -29,11 +31,12 @@ export const Header = () => {
           {/* Menú */}
           <div className="collapse navbar-collapse contenedor-menu" id="menu-navegacion">
             <div className="navbar-nav menu-navegacion">
-              <a className="nav-link enlace-menu" href="#">INICIO</a>
-              <a className="nav-link enlace-menu" href="#">CONÓCENOS</a>
-              <a className="nav-link enlace-menu" href="#">INSCRÍBETE</a>
+              <Link className="nav-link enlace-menu" to="/">INICIO</Link>
+              <Link className="nav-link enlace-menu" to="/conocenos">CONÓCENOS</Link>
+              <Link className="nav-link enlace-menu" to="/inscribete">INSCRÍBETE</Link>
             </div>
           </div>
+
 
           {/* Logo derecha */}
           <div className="contenedor-logo-programa">
