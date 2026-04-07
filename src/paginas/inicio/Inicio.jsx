@@ -1,9 +1,9 @@
 import React from "react"
-import { Rectangulo } from '../rectangulo/Rectangulo'
-import { Banner } from '../banner/Banner'
-import { Estadisticas } from '../estadisticas/Estadisticas'
+import { Rectangulo } from '../../componentes/rectangulo/Rectangulo'
+import { Banner } from '../../componentes/banner/Banner'
+import { Estadisticas } from '../../componentes/estadisticas/Estadisticas'
 import imagenHero from "../../imagenes/imagen_hero1.png"
-import { Hero } from '../hero/Hero'
+import { Hero } from '../../componentes/hero/Hero'
 import './Inicio.css'
 
 export const Inicio = () => {
