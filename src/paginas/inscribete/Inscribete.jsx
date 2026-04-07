@@ -5,7 +5,7 @@ export const Inscribete = () => {
   return (
     <div className="inscribete-container">
       <h1>Inscríbete</h1>
-      <p>Página en construcción.</p>
+      <p>Página en construcción2.0.</p>
     </div>
   )
 }
