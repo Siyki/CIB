@@ -36,8 +36,8 @@ button {
     /* Montserrat negrita */
     background-color: var(--azulclaro);
     color: white;
-    /* Contraste fondo */
-    border: none;
+    /* Contraste fondo blanco/texto oscuro */
+    border: 2px solid var(--azul1);
     cursor: pointer;
     padding: 10px 20px;
     border-radius: 4px;
@@ -46,6 +46,12 @@ button {
 
 button:hover {
     background-color: var(--azul1);
+    color: white;
+}
+
+button:focus {
+    outline: 2px solid var(--verde);
+    outline-offset: 2px;
 }
 
 .bg-verde {
@@ -54,4 +60,30 @@ button:hover {
 
 .bg-rosa {
     background-color: var(--rosa);
+}
+
+/* ESTILOS DE ACCESIBILIDAD PARA NAVEGACIÓN POR TECLADO */
+*:focus {
+    outline: 2px solid var(--verde);
+    outline-offset: 2px;
+}
+
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--verde);
+    outline-offset: 2px;
+}
+
+/* REDUCCIÓN DE MOVIMIENTO PARA USUARIOS CON VÉRTIGO */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

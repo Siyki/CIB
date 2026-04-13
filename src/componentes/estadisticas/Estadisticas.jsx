@@ -119,6 +119,8 @@ export const Estadisticas = () => {
               type="button"
               className="boton-imagen-municipio"
               onClick={() => toggleMunicipio(municipio)}
+              aria-expanded={estaActivo}
+              aria-controls={`grafico-${municipio.nombre}`}
               aria-label={`Ver estadísticas de ${municipio.nombre}`}
             >
               <img
@@ -137,7 +139,7 @@ export const Estadisticas = () => {
               <div className="caja-grafica">
                 <h4 className="titulo-caja">Casos identificados de enfermedades huérfanas por municipio</h4>
                 <p className="texto-caja">{municipio.descripcion}</p>
-                <div className="grafica-wrapper">
+                <div className="grafica-wrapper" id={`grafico-${municipio.nombre}`}>
                   <Bar
                     key={`${municipio.nombre}-${estaActivo}`} // Re-render when active state changes
                     options={activeOptions}

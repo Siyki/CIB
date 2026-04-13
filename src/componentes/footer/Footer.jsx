@@ -28,16 +28,16 @@ export const Footer = () => {
                     <div className="col-md-4 text-md-end">
                         <p className="mb-1">Síguenos</p>
 
-                        <a href="#" className="icono-red me-3">
-                            <i className="bi bi-facebook"></i>
+                        <a href="#" className="icono-red me-3" aria-label="Visitar Facebook de CIB">
+                            <i className="bi bi-facebook" aria-hidden="true"></i>
                         </a>
 
-                        <a href="#" className="icono-red me-3">
-                            <i className="bi bi-instagram"></i>
+                        <a href="#" className="icono-red me-3" aria-label="Visitar Instagram de CIB">
+                            <i className="bi bi-instagram" aria-hidden="true"></i>
                         </a>
 
-                        <a href="#" className="icono-red">
-                            <i className="bi bi-whatsapp"></i>
+                        <a href="#" className="icono-red" aria-label="Contactar por WhatsApp">
+                            <i className="bi bi-whatsapp" aria-hidden="true"></i>
                         </a>
 
                     </div>

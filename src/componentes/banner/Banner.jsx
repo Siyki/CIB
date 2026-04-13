@@ -37,15 +37,15 @@ export const Banner = () => {
         <div className="carousel-inner">
 
           <div className="carousel-item active">
-            <img src={b1} className="imagen-banner" alt="banner 1" />
+            <img src={b1} className="imagen-banner" alt="Imagen promocional del programa de enfermedades huérfanas mostrando apoyo médico y comunitario" />
           </div>
 
           <div className="carousel-item">
-            <img src={b2} className="imagen-banner" alt="banner 2" />
+            <img src={b2} className="imagen-banner" alt="Fotografía de profesionales de la salud trabajando en el programa de atención a enfermedades raras" />
           </div>
 
           <div className="carousel-item">
-            <img src={b3} className="imagen-banner" alt="banner 3" />
+            <img src={b3} className="imagen-banner" alt="Representación gráfica de familias recibiendo apoyo médico especializado para enfermedades huérfanas" />
           </div>
 
         </div>

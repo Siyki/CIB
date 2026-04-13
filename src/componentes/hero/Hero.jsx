@@ -6,10 +6,11 @@ export const Hero = ({ imagen, titulo, descripcion, textoBoton, enlace }) => {
     <section 
       className="hero"
       style={{ backgroundImage: `url(${imagen})` }}
+      aria-labelledby="titulo-hero"
     >
       <div className="overlay-hero">
 
-        <h1 className="titulo-hero">{titulo}</h1>
+        <h1 id="titulo-hero" className="titulo-hero">{titulo}</h1>
 
         <p className="descripcion-hero">{descripcion}</p>
 
