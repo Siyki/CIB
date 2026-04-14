@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { MessageSquare, X, Send, Bot } from 'lucide-react';
-// IMPORTAMOS EL CSS CREADO EN EL PASO 4A
 import './FloatingAssistant.css'; 
 
 // 1. Función para hacer la petición con reintentos
@@ -116,7 +115,7 @@ export function FloatingAssistant() {
                 disabled={isTyping}
               />
               <button type="submit" disabled={!input.trim() || isTyping} className="send-btn">
-                <Send size={18} />
+                <Send size={36} />
               </button>
             </form>
           </div>
