@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './Inscribete.css'
 import { Rectangulo } from '../../componentes/rectangulo/Rectangulo'
+import { BannerEstatico } from '../../componentes/bannerEstatico/BannerEstatico'
+import bannerImagen from '../../imagenes/banner-medico-cosas.jpg'
 
 export const Inscribete = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +18,7 @@ export const Inscribete = () => {
   })
 
   const [enviado, setEnviado] = useState(false)
+  const [intentoEnvio, setIntentoEnvio] = useState(false)
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target
@@ -27,10 +30,19 @@ export const Inscribete = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setIntentoEnvio(true)
+
+    // Validar manualmente si todos los campos requeridos están llenos
+    const formulario = e.target
+    if (!formulario.checkValidity()) {
+      return // Hay campos inválidos, mostrar errores en rojo y no continuar
+    }
+
     console.log('Formulario enviado:', formData)
     setEnviado(true)
     setTimeout(() => {
       setEnviado(false)
+      setIntentoEnvio(false)
       setFormData({
         nombre: '',
         apellidos: '',
@@ -47,14 +59,22 @@ export const Inscribete = () => {
 
   return (
     <div className="inscribete-container">
-      <h1 className="titulo-inscribete">INSCRÍBETE</h1>
-      
+      <BannerEstatico 
+        titulo="Haz parte del"
+        tituloDestacado="programa"
+        descripcion="Déjanos tus datos para ponernos en contacto contigo y brindarte toda la información que necesites."
+        textoPrimario="Preguntas frecuentes"
+        enlacePrimario="/faq"
+        textoSecundario={null}
+        imagenFondo={bannerImagen}
+      />
+
       <div className="contenido-inscribete">
         {/* Formulario */}
         <div className="formulario-seccion">
           <h2 className="subtitulo-formulario">Formulario de Inscripción</h2>
-          
-          <form className="formulario" onSubmit={handleSubmit}>
+
+          <form className={`formulario ${intentoEnvio ? 'formulario-validado' : ''}`} onSubmit={handleSubmit} noValidate>
             <div className="fila-formulario">
               <div className="campo-formulario">
                 <label htmlFor="nombre" className="label-formulario">Nombre</label>
@@ -69,7 +89,7 @@ export const Inscribete = () => {
                   required
                 />
               </div>
-              
+
               <div className="campo-formulario">
                 <label htmlFor="apellidos" className="label-formulario">Apellidos</label>
                 <input
@@ -84,7 +104,7 @@ export const Inscribete = () => {
                 />
               </div>
             </div>
-            
+
             <div className="fila-formulario">
               <div className="campo-formulario">
                 <label htmlFor="correo" className="label-formulario">Correo Electrónico</label>
@@ -99,7 +119,7 @@ export const Inscribete = () => {
                   required
                 />
               </div>
-              
+
               <div className="campo-formulario">
                 <label htmlFor="identificacion" className="label-formulario">Identificación</label>
                 <input
@@ -114,7 +134,7 @@ export const Inscribete = () => {
                 />
               </div>
             </div>
-            
+
             <div className="fila-formulario">
               <div className="campo-formulario">
                 <label htmlFor="celular" className="label-formulario">Celular</label>
@@ -129,7 +149,7 @@ export const Inscribete = () => {
                   required
                 />
               </div>
-              
+
               <div className="campo-formulario">
                 <label htmlFor="municipio" className="label-formulario">Municipio</label>
                 <input
@@ -144,7 +164,7 @@ export const Inscribete = () => {
                 />
               </div>
             </div>
-            
+
             <div className="campo-formulario campo-completo">
               <label htmlFor="direccion" className="label-formulario">Dirección</label>
               <input
@@ -158,10 +178,10 @@ export const Inscribete = () => {
                 required
               />
             </div>
-            
+
             <div className="seccion-checkboxes">
               <legend className="leyenda-formulario">Autorizaciones</legend>
-              
+
               <label className="checkbox-label">
                 <input
                   type="checkbox"
@@ -172,7 +192,7 @@ export const Inscribete = () => {
                 />
                 Autorizo el tratamiento de mis datos personales conforme a la política de protección de datos personales de la CIB.
               </label>
-              
+
               <label className="checkbox-label">
                 <input
                   type="checkbox"
@@ -184,17 +204,16 @@ export const Inscribete = () => {
                 Autorizo el envío de información relacionada con el programa de enfermedades huérfanas y raras.
               </label>
             </div>
-            
-            <button 
-              type="submit" 
+
+            <button
+              type="submit"
               className={`boton-unete ${enviado ? 'enviado' : ''}`}
-              disabled={!formData.autorizacion1 || !formData.autorizacion2}
             >
               {enviado ? '¡ENVIADO!' : 'ÚNETE AL PROGRAMA'}
             </button>
           </form>
         </div>
-        
+
         {/* Información de Contacto */}
         <Rectangulo
           titulo="CONTÁCTANOS"
@@ -222,7 +241,7 @@ export const Inscribete = () => {
               </div>
             </div>
           }
-          color="#003d7a"
+          color="var(--azul1)"
           tituloColor="white"
           textoColor="white"
           paddingInner="40px"

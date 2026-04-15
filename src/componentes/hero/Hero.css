@@ -29,17 +29,22 @@
 
 .boton-hero{
     background-color: var(--azulclaro);
-    color: white;
+    color: var(--azul1);
     border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
+    padding: 14px 32px;
+    border-radius: 999px;
     font-weight: 700;
+    font-size: 16px;
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 24px rgba(105, 197, 236, 0.35);
 }
 
 .boton-hero:hover{
-    background-color: var(--azul1);
+    background-color: #50b8e0;
+    color: var(--azul1);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(105, 197, 236, 0.5);
 }

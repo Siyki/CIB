@@ -1,0 +1,128 @@
+.banner-estatico {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Overlay azul semitransparente sobre la imagen */
+.banner-estatico__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(10, 5, 60, 0.78);
+  /* --azul1 con opacidad */
+  z-index: 0;
+}
+
+/* Contenido centrado sobre el overlay */
+.banner-estatico__contenido {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 80px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Etiqueta pequeña superior */
+.banner-estatico__etiqueta {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--azulclaro);
+  text-transform: uppercase;
+}
+
+/* Título grande */
+.banner-estatico__titulo {
+  font-size: 52px;
+  font-weight: 800;
+  color: white;
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* Segunda línea del título: azul claro */
+.banner-estatico__titulo--destacado {
+  color: var(--azulclaro);
+}
+
+/* Párrafo descriptivo */
+.banner-estatico__descripcion {
+  font-size: 17px;
+  color: #d9e8f5;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0;
+}
+
+/* Fila de botones */
+.banner-estatico__botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+/* Botón base */
+.banner-estatico__boton {
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+/* Botón primario: fondo azulclaro */
+.banner-estatico__boton--primario {
+  background-color: var(--azulclaro);
+  color: var(--azul1);
+  box-shadow: 0 8px 24px rgba(105, 197, 236, 0.35);
+}
+
+.banner-estatico__boton--primario:hover {
+  background-color: #50b8e0;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(105, 197, 236, 0.5);
+  color: var(--azul1);
+}
+
+/* Botón secundario: contorno blanco */
+.banner-estatico__boton--secundario {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.banner-estatico__boton--secundario:hover {
+  background-color: white;
+  color: var(--azul1);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .banner-estatico__titulo {
+    font-size: 34px;
+  }
+
+  .banner-estatico__descripcion {
+    font-size: 15px;
+  }
+
+  .banner-estatico__boton {
+    font-size: 14px;
+    padding: 12px 24px;
+  }
+}

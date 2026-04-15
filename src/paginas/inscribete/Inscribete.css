@@ -1,5 +1,5 @@
 .inscribete-container {
-  padding: 60px 40px;
+  padding: 0;
   background-color: #f9f9f9;
   min-height: 100vh;
 }
@@ -19,6 +19,7 @@
   gap: 60px;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 60px 40px;
 }
 
 /* FORMULARIO */
@@ -91,11 +92,12 @@
   box-shadow: 0 0 10px rgba(0, 61, 122, 0.2);
 }
 
-.input-formulario:invalid:not(:placeholder-shown) {
+.formulario-validado .input-formulario:invalid {
   border-color: #dc3545;
+  box-shadow: 0 0 6px rgba(220, 53, 69, 0.3);
 }
 
-.input-formulario:valid:not(:placeholder-shown) {
+.formulario-validado .input-formulario:valid {
   border-color: #7cc455;
 }
 
@@ -147,6 +149,11 @@
 
 .checkbox-label input[type="checkbox"]:focus {
   outline: 2px solid #7cc455;
+  outline-offset: 2px;
+}
+
+.formulario-validado .checkbox-label input[type="checkbox"]:invalid {
+  outline: 2px solid #dc3545;
   outline-offset: 2px;
 }
 

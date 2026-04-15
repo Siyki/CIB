@@ -49,3 +49,8 @@
 .enlace-menu:hover {
     color: white;
 }
+
+.enlace-menu:focus,
+.enlace-menu:active {
+    color: white;
+}

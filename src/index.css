@@ -6,6 +6,8 @@
     --verde: #7cc455;
     --rosa: #C6C4C0;
     --celeste: #d7f3fc;
+    --azulmorado: #76689f;
+    --azulnegro: #0e0843;
 }
 
 * {
@@ -34,7 +36,7 @@ button {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     /* Montserrat negrita */
-    background-color: var(--azulclaro);
+    background-color: var(--verde);
     color: white;
     /* Contraste fondo blanco/texto oscuro */
     border: 2px solid var(--azul1);
@@ -45,13 +47,14 @@ button {
 }
 
 button:hover {
-    background-color: var(--azul1);
+    background-color: var(--verde);
     color: white;
 }
 
 button:focus {
-    outline: 2px solid var(--verde);
-    outline-offset: 2px;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(105, 197, 236, 0.6), 0 0 14px rgba(105, 197, 236, 0.45);
+    border-radius: 6px;
 }
 
 .bg-verde {
@@ -64,8 +67,9 @@ button:focus {
 
 /* ESTILOS DE ACCESIBILIDAD PARA NAVEGACIÓN POR TECLADO */
 *:focus {
-    outline: 2px solid var(--verde);
-    outline-offset: 2px;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(105, 197, 236, 0.6), 0 0 14px rgba(105, 197, 236, 0.45);
+    border-radius: 6px;
 }
 
 button:focus,
@@ -73,12 +77,14 @@ a:focus,
 input:focus,
 select:focus,
 textarea:focus {
-    outline: 2px solid var(--verde);
-    outline-offset: 2px;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(105, 197, 236, 0.6), 0 0 14px rgba(105, 197, 236, 0.45);
+    border-radius: 6px;
 }
 
 /* REDUCCIÓN DE MOVIMIENTO PARA USUARIOS CON VÉRTIGO */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {

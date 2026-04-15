@@ -1,0 +1,125 @@
+.cta {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--azulnegro);
+  padding: 100px 40px;
+  text-align: center;
+}
+
+/* Blobs decorativos animados */
+.cta__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  animation: cta-flotar 6s ease-in-out infinite alternate;
+}
+
+.cta__blob--verde {
+  width: 300px;
+  height: 300px;
+  background-color: #ffffff;
+  top: -60px;
+  right: -60px;
+}
+
+.cta__blob--azul {
+  width: 350px;
+  height: 350px;
+  background-color: var(--azulclaro);
+  bottom: -80px;
+  left: -80px;
+  animation-delay: 2s;
+}
+
+@keyframes cta-flotar {
+  from {
+    transform: translateY(0px) scale(1);
+  }
+
+  to {
+    transform: translateY(20px) scale(1.05);
+  }
+}
+
+/* Contenido */
+.cta__contenido {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta__titulo {
+  font-size: 42px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.cta__texto {
+  font-size: 18px;
+  color: #c7d8f0;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.cta__boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--verde);
+  color: var(--azul1);
+  font-weight: 700;
+  font-size: 18px;
+  padding: 18px 40px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(124, 196, 85, 0.35);
+}
+
+.cta__boton:hover {
+  background-color: #8ce36b;
+  /* Un verde un poco más claro para el hover */
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(124, 196, 85, 0.5);
+  color: var(--azul1);
+}
+
+.cta__pie {
+  margin-top: 24px;
+  font-size: 14px;
+  color: #a8c4e0;
+}
+
+.cta__pie a {
+  color: white;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.cta__pie a:hover {
+  color: var(--verde);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cta {
+    padding: 70px 24px;
+  }
+
+  .cta__titulo {
+    font-size: 28px;
+  }
+
+  .cta__texto {
+    font-size: 16px;
+  }
+
+  .cta__boton {
+    font-size: 16px;
+    padding: 14px 28px;
+  }
+}

@@ -1,19 +1,154 @@
-.fondo-footer{
-    background-color: var(--azul1);
-    color: white;
+/* =========================================
+   FOOTER PRINCIPAL
+   ========================================= */
+.footer {
+  background-color: var(--azul1);
+  color: #9ca3af;
+  padding: 60px 40px 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.marca-footer{
-    font-size: 22px;
-    font-weight: 700;
+/* =========================================
+   CUERPO: 3 COLUMNAS
+   ========================================= */
+.footer__cuerpo {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 48px;
 }
 
-.icono-red{
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
+/* =========================================
+   COLUMNA GENÉRICA
+   ========================================= */
+.footer__columna {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.icono-red:hover{
-    color: var(--azulclaro);
+/* =========================================
+   LOGO
+   ========================================= */
+.footer__logo {
+  height: 52px;
+  object-fit: contain;
+  object-position: left;
+}
+
+/* =========================================
+   DESCRIPCIÓN
+   ========================================= */
+.footer__descripcion {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #9ca3af;
+  margin: 0;
+  max-width: 300px;
+}
+
+/* =========================================
+   TÍTULOS DE SECCIÓN
+   ========================================= */
+.footer__titulo-seccion {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   LISTA DE ENLACES
+   ========================================= */
+.footer__lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__enlace {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer__enlace:hover {
+  color: var(--verde);
+}
+
+/* =========================================
+   ÍCONOS DE REDES SOCIALES
+   ========================================= */
+.footer__redes {
+  display: flex;
+  gap: 12px;
+}
+
+.footer__icono-red {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #9ca3af;
+  font-size: 18px;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.footer__icono-red:hover {
+  background-color: var(--verde);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   COPYRIGHT
+   ========================================= */
+.footer__copyright {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 900px) {
+  .footer__cuerpo {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer__columna:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer {
+    padding: 48px 24px 0;
+  }
+
+  .footer__cuerpo {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer__columna:first-child {
+    grid-column: auto;
+  }
 }
