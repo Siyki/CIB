@@ -52,9 +52,9 @@ export const BannerEstatico = ({
             </Link>
           )}
           {textoSecundario && (
-            <a href={enlaceSecundario} className="banner-estatico__boton banner-estatico__boton--secundario">
+            <Link to={enlaceSecundario} className="banner-estatico__boton banner-estatico__boton--secundario">
               {textoSecundario}
-            </a>
+            </Link>
           )}
         </div>
       </div>

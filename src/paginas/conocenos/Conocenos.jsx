@@ -11,7 +11,7 @@ export const Conocenos = () => {
     <div className="conocenos-container">
 
       {/* Banner / Hero */}
-      <BannerEstatico />
+      <BannerEstatico enlaceSecundario="/faq" />
 
       {/* Sección: ¿Qué son? + Ejes de acción */}
       <section className="conocenos-seccion-info">

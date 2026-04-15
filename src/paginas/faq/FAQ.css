@@ -4,7 +4,7 @@
 }
 
 .faq-header {
-  background-color: var(--azul1);
+  background-color: var(--azulnegro);
   color: white;
   padding: 80px 20px;
   text-align: center;
@@ -14,7 +14,8 @@
   font-size: 48px;
   font-weight: 800;
   margin-bottom: 20px;
-  color: white; /* Asegurar contraste */
+  color: white;
+  /* Asegurar contraste */
 }
 
 .faq-subtitulo {
@@ -69,15 +70,15 @@
   .faq-titulo {
     font-size: 36px;
   }
-  
+
   .faq-content {
     margin-top: -20px;
   }
-  
+
   .faq-list {
     padding: 25px;
   }
-  
+
   .faq-pregunta {
     font-size: 18px;
   }
