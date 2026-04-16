@@ -24,6 +24,8 @@ export const Header = () => {
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#menu-navegacion"
+            aria-expanded="false"
+            aria-controls="menu-navegacion"
           >
             <span className="navbar-toggler-icon"></span>
           </button>

@@ -60,6 +60,7 @@ export const Inscribete = () => {
   return (
     <div className="inscribete-container">
       <BannerEstatico 
+        etiqueta="INSCRIPCIÓN"
         titulo="Haz parte del"
         tituloDestacado="programa"
         descripcion="Déjanos tus datos para ponernos en contacto contigo y brindarte toda la información que necesites."

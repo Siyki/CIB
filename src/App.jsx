@@ -6,8 +6,9 @@ import { FloatingAssistant } from './componentes/ia/FloatingAssistant'
 function App() {
   return (
     <>
+      <a href="#main-content" className="skip-link">Saltar al contenido principal</a>
       <Header />
-      <main role="main">
+      <main id="main-content">
         <Outlet />
       </main>
       <Footer />

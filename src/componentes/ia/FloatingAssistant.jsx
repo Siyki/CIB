@@ -35,11 +35,11 @@ export function FloatingAssistant() {
     setIsTyping(true);
 
     try {
-      // 2. Consumir la API de Gemini (Usamos la llave guardada en .env.local)
-      const apiKey = "AIzaSyDGM3SJWomuqDglbdtBgoR_17KNCVW9aoQ";
+      // 2. Consumir la API de Gemini 
+      const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
       const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
       
-      // 3. Armar el Payload (El cuerpo de la petición)
+      // 3. Armar el Payload 
       const payload = {
         contents: [{ parts: [{ text: userText }] }],
         systemInstruction: {
@@ -76,7 +76,7 @@ export function FloatingAssistant() {
           <div className="chat-header">
             <div className="chat-title">
               <Bot size={24} />
-              <span>Asistente IA</span>
+              <span>Soy tu asistente SofIA</span>
             </div>
             <button onClick={() => setIsOpen(false)} className="close-btn">
               <X size={20} />

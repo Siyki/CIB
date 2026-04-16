@@ -5,13 +5,51 @@ import { Rectangulo } from '../../componentes/rectangulo/Rectangulo'
 import { Estadisticas } from '../../componentes/estadisticas/Estadisticas'
 import { IconoTexto } from '../../componentes/iconos/IconoTexto'
 import { CTA } from '../../componentes/cta/CTA'
+import sanJeronimoImg from '../../imagenes/sanjerónimo.png'
+import santaFeImg from '../../imagenes/santafe.png'
+import sopetranImg from '../../imagenes/sopetran.png'
+import medicomanosImg from '../../imagenes/medico-manos.jpg'
+
+const datosMunicipios = [
+  {
+    nombre: 'San Jerónimo',
+    imagen: sanJeronimoImg,
+    descripcion:
+      'Distribución de casos identificados en el municipio, comparando dos variables principales para facilitar la lectura de los datos.',
+    valores: [19, 31],
+  },
+  {
+    nombre: 'Santa Fe de Antioquia',
+    imagen: santaFeImg,
+    descripcion:
+      'Resumen de casos huerfanos por categoria. La grafica muestra la diferencia entre ambas variables en este territorio.',
+    valores: [24, 33],
+  },
+  {
+    nombre: 'Sopetrán',
+    imagen: sopetranImg,
+    descripcion:
+      'Analisis local de registros identificados. Los datos se presentan para comparar el comportamiento entre las dos variables.',
+    valores: [22, 15],
+  },
+]
 
 export const Conocenos = () => {
   return (
     <div className="conocenos-container">
 
       {/* Banner / Hero */}
-      <BannerEstatico enlaceSecundario="/faq" />
+      <BannerEstatico 
+        etiqueta="PROGRAMA DE ATENCIÓN INTEGRAL"
+        titulo="Juntos frente a las"
+        tituloDestacado="Enfermedades Huérfanas"
+        descripcion="Llevamos diagnóstico, acompañamiento y esperanza a miles de familias en Antioquia. No estás solo en este camino."
+        textoPrimario="Inscríbete al programa"
+        enlacePrimario="/inscribete"
+        textoSecundario="Saber más"
+        enlaceSecundario="/faq" 
+        imagenFondo={medicomanosImg}
+      />
 
       {/* Sección: ¿Qué son? + Ejes de acción */}
       <section className="conocenos-seccion-info">
@@ -83,7 +121,7 @@ export const Conocenos = () => {
           />
         </div>
 
-        <Estadisticas />
+        <Estadisticas datos={datosMunicipios} />
       </section>
 
       {/* Sección: CTA Final */}

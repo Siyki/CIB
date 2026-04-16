@@ -2,37 +2,7 @@ import { useEffect, useState } from 'react'
 import 'chart.js/auto'
 import { Bar } from 'react-chartjs-2'
 import './Estadisticas.css'
-import sanJeronimoImg from '../../imagenes/sanjerónimo.png'
-import santaFeImg from '../../imagenes/santafe.png'
-import sopetranImg from '../../imagenes/sopetran.png'
-
-const municipios = [
-  {
-    nombre: 'San Jerónimo',
-    imagen: sanJeronimoImg,
-    descripcion:
-      'Distribución de casos identificados en el municipio, comparando dos variables principales para facilitar la lectura de los datos.',
-    valores: [19, 31],
-
-  },
-  {
-    nombre: 'Santa Fe de Antioquia',
-    imagen: santaFeImg,
-    descripcion:
-      'Resumen de casos huerfanos por categoria. La grafica muestra la diferencia entre ambas variables en este territorio.',
-    valores: [24, 33],
-
-  },
-  {
-    nombre: 'Sopetrán',
-    imagen: sopetranImg,
-    descripcion:
-      'Analisis local de registros identificados. Los datos se presentan para comparar el comportamiento entre las dos variables.',
-    valores: [22, 15],
-
-  },
-]
-
+// Componente Estadisticas. Recibe un arreglo de 'datos' para renderizar las tarjetas.
 const crearData = (valores) => ({
   labels: ['Mujeres', 'Hombres'],
   datasets: [
@@ -65,8 +35,7 @@ const options = {
   },
 }
 
-// Observador del scroll
-export const Estadisticas = () => {
+export const Estadisticas = ({ datos = [] }) => {
   const [municipioActivo, setMunicipioActivo] = useState(null)
   const [tarjetasVisibles, setTarjetasVisibles] = useState({})
 
@@ -104,8 +73,8 @@ export const Estadisticas = () => {
   }
 
   return (
-    <section className="contenedor-estadisticas">
-      {municipios.map((municipio) => {
+   <section className="contenedor-estadisticas">
+      {datos.map((municipio) => {
         const estaActivo = municipioActivo?.nombre === municipio.nombre;
         const yaAparecio = tarjetasVisibles[municipio.nombre];
 

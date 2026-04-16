@@ -2,13 +2,18 @@ import React from "react"
 import { Rectangulo } from '../../componentes/rectangulo/Rectangulo'
 import { Banner } from '../../componentes/banner/Banner'
 import imagenHero from "../../imagenes/imagen_hero1.png"
+import b1 from "../../imagenes/Banner_1.png"
+import b2 from "../../imagenes/Banner_2.png"
+import b3 from "../../imagenes/Banner_3.png"
+
+const imagenesBanner = [b1, b2, b3]
 import { Hero } from '../../componentes/hero/Hero'
 import './Inicio.css'
 
 export const Inicio = () => {
   return (
     <>
-      <Banner />
+      <Banner imagenes={imagenesBanner} />
 
       <Rectangulo
         titulo="¿QUIÉNES SOMOS?"
