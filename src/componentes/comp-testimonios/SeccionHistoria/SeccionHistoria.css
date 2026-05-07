@@ -1,0 +1,66 @@
+
+.seccion-historia {
+    padding: 50px 20px; /* Reducido de 80px */
+    background-color: #ffffff;
+}
+
+.seccion-historia__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Reducido de 60px */
+}
+
+.seccion-historia--inverso .seccion-historia__container {
+    flex-direction: row-reverse;
+}
+
+.seccion-historia__image {
+    flex: 1;
+}
+
+.seccion-historia__image img {
+    max-width: 100%; /* El contenedor flex controla el tamaño */
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.seccion-historia__content {
+    flex: 1.2;
+}
+
+.seccion-historia__title {
+    font-size: 28px; /* Reducido de 32px */
+    font-weight: 800;
+    color: var(--azulnegro);
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.seccion-historia__title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px; /* Reducido de 60px */
+    height: 3px;
+    background-color: var(--azul1);
+    border-radius: 2px;
+}
+
+.seccion-historia__text {
+    font-size: 16px; /* Reducido de 18px */
+    line-height: 1.6;
+    color: #4b5563;
+}
+
+@media (max-width: 768px) {
+    .seccion-historia__container {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 25px;
+    }
+}

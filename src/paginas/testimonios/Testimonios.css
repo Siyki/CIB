@@ -1,0 +1,33 @@
+
+.testimonios-page {
+    overflow-x: hidden;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Ajustes adicionales para la página de testimonios */
+.testimonios-page .cta {
+    background-color: var(--azul1);
+}
+
+.testimonios-page .cta__titulo {
+    color: white;
+}
+
+.testimonios-page .cta__texto {
+    color: var(--celeste);
+}
+
+.testimonios-page .cta__boton {
+    background-color: white;
+    color: var(--azul1);
+}
+
+.testimonios-page .cta__boton:hover {
+    background-color: var(--celeste);
+    color: var(--azulnegro);
+}

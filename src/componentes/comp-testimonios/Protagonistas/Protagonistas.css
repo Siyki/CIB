@@ -1,0 +1,105 @@
+
+.protagonistas {
+    padding: 50px 20px; /* Reducido de 80px */
+    background-color: #f8fafc;
+}
+
+.protagonistas__container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.protagonistas__header {
+    text-align: center;
+    margin-bottom: 35px; /* Reducido de 50px */
+}
+
+.protagonistas__title {
+    font-size: 24px; /* Reducido de 28px */
+    font-weight: 800;
+    color: var(--azulnegro);
+    position: relative;
+    display: inline-block;
+    padding: 0 30px;
+}
+
+.protagonistas__title::before,
+.protagonistas__title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 2px;
+    background-color: var(--azul1);
+}
+
+.protagonistas__title::before { left: 0; }
+.protagonistas__title::after { right: 0; }
+
+.protagonistas__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Reducido de 30px */
+}
+
+.protagonistas__card {
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.protagonistas__image-wrapper {
+    height: 220px; /* Reducido de 280px */
+    overflow: hidden;
+    background: radial-gradient(circle at center, #ffffff 0%, var(--celeste) 100%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.protagonistas__image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(2.2); /* Zoom ajustado */
+    transform-origin: top center;
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.08));
+}
+
+.protagonistas__info {
+    padding: 20px; /* Reducido de 24px */
+    text-align: center;
+}
+
+.protagonistas__name {
+    font-size: 18px; /* Reducido de 22px */
+    font-weight: 700;
+    color: var(--azulnegro);
+    margin: 0 0 3px;
+}
+
+.protagonistas__role {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--azul1);
+    margin-bottom: 10px;
+}
+
+.protagonistas__desc {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+    .protagonistas__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .protagonistas__grid {
+        grid-template-columns: 1fr;
+    }
+}
