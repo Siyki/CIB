@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Building2, User, Bell, LogIn, Stethoscope, CheckCircle } from 'lucide-react';
+import { Building2, User, Bell, LogIn, Stethoscope, CheckCircle, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { BarraBusqueda } from '../../componentes/comp-foro/BarraBusqueda/BarraBusqueda';
 import { CuadrosInfo } from '../../componentes/comp-foro/CuadrosInfo/CuadrosInfo';
 import { DetallePost } from '../../componentes/comp-foro/DetallePost/DetallePost';
@@ -8,6 +9,8 @@ import { ChatSofia } from '../../componentes/comp-foro/ChatSofia/ChatSofia';
 import { Directorio } from '../../componentes/comp-foro/Directorio/Directorio';
 import { PerfilUsuario } from '../../componentes/comp-foro/PerfilUsuario/PerfilUsuario';
 import { initialPosts } from '../../datos/foroDatos';
+import logoCIB from '../../imagenes/logo_CIBblanco.png';
+import logoEHR from '../../imagenes/logo-enfermedadblanco.png';
 import './Foro.css';
 
 // --- Usuarios de demostración ---
@@ -193,67 +196,81 @@ export const Foro = () => {
     return (
         <div className={`foro-pagina ${isDoctor ? 'foro-pagina--medico' : ''}`}>
             {/* Header propio del foro */}
-            <header className={`foro-header ${isDoctor ? 'foro-header--medico' : ''}`}>
+            <header className="foro-header">
                 <div className="foro-header__contenido">
-                    {/* Logo + nav */}
+
+                    {/* Logo CIB izquierda + botón volver */}
                     <div className="foro-header__izquierda">
+                        <div className="foro-header__logos">
+                            <Link to="/" className="foro-header__logo-link" aria-label="Volver al sitio principal CIB">
+                                <img src={logoCIB} alt="Logo CIB" className="foro-header__logo-cib" />
+                            </Link>
+                        </div>
+
+                        {/* Botón volver al CIB */}
+                        <Link
+                            to="/"
+                            className="foro-header__btn-volver"
+                            aria-label="Volver a la página principal del CIB"
+                        >
+                            <ArrowLeft size={15} /> Volver al CIB
+                        </Link>
+
+                        {/* Separador */}
+                        <span className="foro-header__separador" aria-hidden="true">|</span>
+
+                        {/* Nombre del foro */}
                         <button
-                            className="foro-header__logo"
+                            className="foro-header__nombre-foro"
                             onClick={handleBackHome}
                             type="button"
                             aria-label="Ir al inicio del foro"
                         >
-                            <div className="foro-header__logo-icono">
-                                {isDoctor ? <Stethoscope size={22} /> : <CheckCircle size={22} />}
-                            </div>
-                            <span className="foro-header__logo-texto">
-                                Foro<span className="foro-header__logo-acento">Huérfanas</span>
-                            </span>
+                            Foro<span className="foro-header__nombre-acento">Huérfanas</span>
                         </button>
 
-                        {!isDoctor && (
-                            <button
-                                id="btn-directorio"
-                                className={`foro-header__btn-nav ${currentView === 'directory' ? 'foro-header__btn-nav--activo' : ''}`}
-                                onClick={() => setCurrentView('directory')}
-                                type="button"
-                            >
-                                <Building2 size={16} /> Directorio de Apoyo
-                            </button>
-                        )}
+                        {/* Directorio */}
+                        <button
+                            id="btn-directorio"
+                            className={`foro-header__btn-nav ${currentView === 'directory' ? 'foro-header__btn-nav--activo' : ''}`}
+                            onClick={() => setCurrentView('directory')}
+                            type="button"
+                        >
+                            <Building2 size={15} /> Directorio de Apoyo
+                        </button>
                     </div>
 
-                    {/* Controles */}
+                    {/* Controles derecha */}
                     <div className="foro-header__derecha">
-                        {!isDoctor && (
-                            <div className="foro-header__notificaciones">
-                                <button
-                                    id="btn-notificaciones"
-                                    className="foro-header__btn-icono"
-                                    onClick={() => setShowNotifications(prev => !prev)}
-                                    type="button"
-                                    aria-label="Ver notificaciones"
-                                >
-                                    <Bell size={20} />
-                                    {notifications.some(n => !n.read) && (
-                                        <span className="foro-header__notif-badge" aria-label="Tienes notificaciones sin leer" />
-                                    )}
-                                </button>
-
-                                {showNotifications && (
-                                    <div className="foro-header__notif-panel" role="region" aria-label="Notificaciones">
-                                        <div className="foro-header__notif-titulo">Notificaciones</div>
-                                        {notifications.map(notif => (
-                                            <div key={notif.id} className={`foro-header__notif-item ${!notif.read ? 'foro-header__notif-item--nueva' : ''}`}>
-                                                <p>{notif.text}</p>
-                                                <span>{notif.time}</span>
-                                            </div>
-                                        ))}
-                                    </div>
+                        {/* Notificaciones */}
+                        <div className="foro-header__notificaciones">
+                            <button
+                                id="btn-notificaciones"
+                                className="foro-header__btn-icono"
+                                onClick={() => setShowNotifications(prev => !prev)}
+                                type="button"
+                                aria-label="Ver notificaciones"
+                            >
+                                <Bell size={20} />
+                                {notifications.some(n => !n.read) && (
+                                    <span className="foro-header__notif-badge" aria-label="Tienes notificaciones sin leer" />
                                 )}
-                            </div>
-                        )}
+                            </button>
 
+                            {showNotifications && (
+                                <div className="foro-header__notif-panel" role="region" aria-label="Notificaciones">
+                                    <div className="foro-header__notif-titulo">Notificaciones</div>
+                                    {notifications.map(notif => (
+                                        <div key={notif.id} className={`foro-header__notif-item ${!notif.read ? 'foro-header__notif-item--nueva' : ''}`}>
+                                            <p>{notif.text}</p>
+                                            <span>{notif.time}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Perfil */}
                         <button
                             id="btn-perfil"
                             className="foro-header__btn-perfil"
@@ -273,15 +290,19 @@ export const Foro = () => {
                             <span className="foro-header__usuario-nombre">{currentUser.name}</span>
                         </button>
 
+                        {/* Cambiar perfil */}
                         <button
                             className="foro-header__btn-logout"
                             onClick={handleLogout}
                             title="Cambiar perfil"
-                            aria-label="Cerrar sesión"
+                            aria-label="Cambiar perfil"
                             type="button"
                         >
                             <LogIn size={18} />
                         </button>
+
+                        {/* Logo EHR derecha */}
+                        <img src={logoEHR} alt="Logo Enfermedades Huérfanas" className="foro-header__logo-ehr" />
                     </div>
                 </div>
             </header>
