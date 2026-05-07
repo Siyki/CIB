@@ -9,10 +9,12 @@ export const Rectangulo = ({
   textoColor = "white",
   paddingInner = "60px 120px",
   paddingOuter = "40px 20px"
+
+  //observador de animacion
 }) => {
   const elementoRef = useRef(null)
-  
-  // Observador para animar el rectángulo al entrar en pantalla
+
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

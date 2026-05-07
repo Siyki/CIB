@@ -33,9 +33,9 @@ export const Header = () => {
           {/* Menú */}
           <div className="collapse navbar-collapse contenedor-menu" id="menu-navegacion">
             <div className="navbar-nav menu-navegacion">
-              <Link className="nav-link enlace-menu" to="/">INICIO</Link>
-              <Link className="nav-link enlace-menu" to="/conocenos">CONÓCENOS</Link>
-              <Link className="nav-link enlace-menu" to="/inscribete">INSCRÍBETE</Link>
+              <Link className="nav-link enlace-menu" to="/" tabIndex={2}>INICIO</Link>
+              <Link className="nav-link enlace-menu" to="/conocenos" tabIndex={3}>CONÓCENOS</Link>
+              <Link className="nav-link enlace-menu" to="/inscribete" tabIndex={1}>INSCRÍBETE</Link>
             </div>
           </div>
 
