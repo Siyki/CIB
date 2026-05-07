@@ -1,0 +1,424 @@
+.detalle-post {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.detalle-post__volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    align-self: flex-start;
+    margin-bottom: 4px;
+}
+
+.detalle-post__volver:hover {
+    color: var(--azul1);
+    box-shadow: none;
+    background: none;
+}
+
+/* --- Pregunta --- */
+.detalle-post__pregunta {
+    background-color: white;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 2px 10px rgba(51, 42, 126, 0.06);
+    position: relative;
+}
+
+.detalle-post__btn-guardar {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.detalle-post__btn-guardar:hover {
+    background-color: var(--celeste);
+    color: var(--azul1);
+    box-shadow: none;
+}
+
+.detalle-post__btn-guardar--activo {
+    color: var(--azul1);
+    background-color: var(--celeste);
+}
+
+.detalle-post__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding-right: 40px;
+}
+
+.detalle-post__etiqueta-enfermedad {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--azul1);
+    background-color: var(--celeste);
+    padding: 4px 12px;
+    border-radius: 6px;
+}
+
+.detalle-post__fecha {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-left: auto;
+}
+
+.detalle-post__titulo {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--azulnegro);
+    margin: 0 0 20px;
+    line-height: 1.3;
+}
+
+.detalle-post__autor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.detalle-post__avatar-anonimo {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    flex-shrink: 0;
+}
+
+.detalle-post__autor-nombre {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--azul1);
+    margin: 0;
+}
+
+.detalle-post__autor-tipo {
+    font-size: 12px;
+    color: #94a3b8;
+    margin: 2px 0 0;
+}
+
+.detalle-post__cuerpo {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: #334155;
+}
+
+.detalle-post__yo-tambien {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #f1f5f9;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.detalle-post__yo-tambien-texto {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+}
+
+.detalle-post__btn-votar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background-color: white;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 999px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.detalle-post__btn-votar:hover {
+    background-color: var(--celeste);
+    color: var(--azul1);
+    border-color: var(--azulclaro);
+    box-shadow: none;
+}
+
+/* --- Respuesta del médico --- */
+.detalle-post__respuesta {
+    background-color: #eef5fc;
+    border: 2px solid #c9dff5;
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+.detalle-post__respuesta::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 140px;
+    height: 140px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 24 24' fill='none' stroke='%2369c5ec' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.07;
+    pointer-events: none;
+}
+
+.detalle-post__respuesta-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.detalle-post__respuesta-titulo-grupo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detalle-post__icono-shield {
+    color: var(--azul1);
+}
+
+.detalle-post__respuesta-titulo {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--azulnegro);
+    margin: 0;
+}
+
+.detalle-post__respuesta-acciones {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.detalle-post__btn-accion {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background-color: white;
+    border: 1.5px solid #c9dff5;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--azul1);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.detalle-post__btn-accion:hover {
+    background-color: var(--celeste);
+    box-shadow: none;
+}
+
+.detalle-post__btn-compartir {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background-color: #25D366;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.detalle-post__btn-compartir:hover {
+    background-color: #1aad54;
+    box-shadow: none;
+    color: white;
+}
+
+.detalle-post__respuesta-cuerpo {
+    background-color: white;
+    border: 1px solid #dbeafe;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(51, 42, 126, 0.05);
+}
+
+.detalle-post__medico-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.detalle-post__medico-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.detalle-post__medico-nombre {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--azulnegro);
+    margin: 0 0 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.detalle-post__icono-verificado {
+    color: var(--azulclaro);
+    flex-shrink: 0;
+}
+
+.detalle-post__medico-especialidad {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--azul1);
+    margin: 0;
+}
+
+.detalle-post__respuesta-texto {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #334155;
+    white-space: pre-wrap;
+}
+
+/* Glosario tooltip */
+.detalle-post__termino-glosario {
+    position: relative;
+    display: inline;
+    border-bottom: 1px dashed var(--azulclaro);
+    color: var(--azul1);
+    cursor: help;
+    font-weight: 600;
+}
+
+.detalle-post__tooltip-glosario {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+    width: 260px;
+    padding: 12px 14px;
+    background-color: var(--azulnegro);
+    color: white;
+    font-size: 12px;
+    border-radius: 10px;
+    line-height: 1.5;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 50;
+    text-align: left;
+    white-space: normal;
+    font-weight: 400;
+}
+
+.detalle-post__tooltip-glosario strong {
+    display: block;
+    color: var(--azulclaro);
+    margin-bottom: 4px;
+    text-transform: capitalize;
+}
+
+.detalle-post__termino-glosario:hover .detalle-post__tooltip-glosario {
+    opacity: 1;
+}
+
+/* Fuentes científicas */
+.detalle-post__fuentes {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 12px 14px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.detalle-post__fuentes-icono {
+    color: #94a3b8;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.detalle-post__fuentes-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #64748b;
+    margin: 0 0 4px;
+}
+
+.detalle-post__fuentes-texto {
+    font-size: 13px;
+    color: #475569;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .detalle-post__pregunta,
+    .detalle-post__respuesta {
+        padding: 22px 18px;
+    }
+
+    .detalle-post__titulo {
+        font-size: 21px;
+    }
+
+    .detalle-post__respuesta-cabecera {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

@@ -36,6 +36,7 @@ export const Header = () => {
               <Link className="nav-link enlace-menu" to="/" tabIndex={2}>INICIO</Link>
               <Link className="nav-link enlace-menu" to="/conocenos" tabIndex={3}>CONÓCENOS</Link>
               <Link className="nav-link enlace-menu" to="/inscribete" tabIndex={1}>INSCRÍBETE</Link>
+              <Link className="nav-link enlace-menu" to="/foro" tabIndex={4}>FORO</Link>
             </div>
           </div>
 

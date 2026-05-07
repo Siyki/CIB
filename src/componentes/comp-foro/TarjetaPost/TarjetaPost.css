@@ -1,0 +1,76 @@
+.tarjeta-post {
+    background-color: white;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 22px 20px;
+    box-shadow: 0 2px 8px rgba(51, 42, 126, 0.05);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: box-shadow 0.25s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tarjeta-post:hover,
+.tarjeta-post:focus {
+    box-shadow: 0 8px 24px rgba(51, 42, 126, 0.12);
+    transform: translateY(-2px);
+    border-color: var(--azulclaro);
+    outline: none;
+}
+
+.tarjeta-post__cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+}
+
+.tarjeta-post__votos {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+.tarjeta-post__titulo {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--azulnegro);
+    margin: 0 0 10px;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tarjeta-post__contenido {
+    font-size: 13.5px;
+    color: #64748b;
+    line-height: 1.55;
+    flex-grow: 1;
+    margin: 0 0 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tarjeta-post__pie {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.tarjeta-post__enfermedad {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--azul1);
+    background-color: var(--celeste);
+    padding: 4px 10px;
+    border-radius: 6px;
+}

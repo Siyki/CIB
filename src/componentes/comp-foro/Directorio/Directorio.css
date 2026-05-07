@@ -1,0 +1,147 @@
+.directorio {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.directorio__volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    align-self: flex-start;
+}
+
+.directorio__volver:hover {
+    color: var(--azul1);
+    box-shadow: none;
+    background: none;
+}
+
+.directorio__cabecera {
+    background-color: white;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 2px 10px rgba(51, 42, 126, 0.05);
+}
+
+.directorio__titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--azulnegro);
+    margin: 0 0 10px;
+}
+
+.directorio__titulo svg {
+    color: var(--verde);
+    flex-shrink: 0;
+}
+
+.directorio__descripcion {
+    font-size: 15px;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.directorio__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.directorio__tarjeta {
+    background-color: white;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(51, 42, 126, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: box-shadow 0.25s ease, border-color 0.2s ease;
+}
+
+.directorio__tarjeta:hover {
+    box-shadow: 0 8px 24px rgba(51, 42, 126, 0.1);
+    border-color: var(--azulclaro);
+}
+
+.directorio__tarjeta-nombre {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--azulnegro);
+    margin: 0 0 8px;
+}
+
+.directorio__tarjeta-enfoque {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--azul1);
+    background-color: var(--celeste);
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    align-self: flex-start;
+}
+
+.directorio__tarjeta-descripcion {
+    font-size: 13.5px;
+    color: #64748b;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin: 0 0 20px;
+}
+
+.directorio__tarjeta-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.directorio__tarjeta-enlace {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.directorio__tarjeta-enlace:hover {
+    color: var(--azul1);
+}
+
+@media (max-width: 900px) {
+    .directorio__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .directorio__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .directorio__cabecera {
+        padding: 22px 18px;
+    }
+}

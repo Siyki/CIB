@@ -7,6 +7,7 @@ import { Inicio } from './paginas/inicio/Inicio.jsx'
 import { Conocenos } from './paginas/conocenos/Conocenos.jsx'
 import { Inscribete } from './paginas/inscribete/Inscribete.jsx'
 import { FAQ } from './paginas/faq/FAQ.jsx'
+import { Foro } from './paginas/foro/Foro.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -19,6 +20,8 @@ createRoot(document.getElementById('root')).render(
           <Route path="faq" element={<FAQ />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
+        {/* Foro tiene su propio header/layout */}
+        <Route path="/foro" element={<Foro />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

@@ -1,0 +1,224 @@
+.formulario-medico {
+    background-color: white;
+    border: 2px solid var(--azulclaro);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 4px 14px rgba(105, 197, 236, 0.15);
+    position: relative;
+    margin-top: 8px;
+}
+
+.formulario-medico__etiqueta {
+    position: absolute;
+    top: -14px;
+    left: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--celeste);
+    color: var(--azul1);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--azulclaro);
+}
+
+.formulario-medico__form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 10px;
+}
+
+.formulario-medico__campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formulario-medico__label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--azulnegro);
+}
+
+.formulario-medico__label--icono {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.formulario-medico__label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.formulario-medico__veredictos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.formulario-medico__opcion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    color: #475569;
+}
+
+.formulario-medico__opcion input {
+    display: none;
+}
+
+.formulario-medico__opcion:hover {
+    border-color: var(--azulclaro);
+    background-color: var(--celeste);
+}
+
+.formulario-medico__opcion--activa.formulario-medico__opcion--verde {
+    border-color: #16a34a;
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.formulario-medico__opcion--activa.formulario-medico__opcion--rojo {
+    border-color: #dc2626;
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.formulario-medico__opcion--activa.formulario-medico__opcion--morado {
+    border-color: #7c3aed;
+    background-color: #ede9fe;
+    color: #5b21b6;
+}
+
+.formulario-medico__btn-ia {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background-color: #ede9fe;
+    border: 1px solid #c4b5fd;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #5b21b6;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.formulario-medico__btn-ia:hover {
+    background-color: #ddd6fe;
+    box-shadow: none;
+}
+
+.formulario-medico__btn-ia--generando {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.formulario-medico__plantillas {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.formulario-medico__btn-plantilla {
+    padding: 5px 12px;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: #475569;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-weight: 600;
+}
+
+.formulario-medico__btn-plantilla:hover {
+    background-color: var(--celeste);
+    border-color: var(--azulclaro);
+    color: var(--azul1);
+    box-shadow: none;
+}
+
+.formulario-medico__textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: var(--azul1);
+    background-color: #f8fbff;
+    resize: vertical;
+    min-height: 140px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+}
+
+.formulario-medico__textarea:focus {
+    border-color: var(--azulclaro);
+    box-shadow: 0 0 0 3px rgba(105, 197, 236, 0.2);
+}
+
+.formulario-medico__input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: var(--azul1);
+    background-color: white;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+}
+
+.formulario-medico__input:focus {
+    border-color: var(--azulclaro);
+    box-shadow: 0 0 0 3px rgba(105, 197, 236, 0.2);
+}
+
+.formulario-medico__ayuda {
+    font-size: 12px;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.formulario-medico__btn-enviar {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--azul1);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+    box-shadow: 0 4px 14px rgba(51, 42, 126, 0.3);
+}
+
+.formulario-medico__btn-enviar:hover {
+    background-color: var(--azulnegro);
+    transform: translateY(-1px);
+    color: white;
+}
