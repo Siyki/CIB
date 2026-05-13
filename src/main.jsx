@@ -20,10 +20,9 @@ createRoot(document.getElementById('root')).render(
           <Route path="inscribete" element={<Inscribete />} />
           <Route path="faq" element={<FAQ />} />
           <Route path="testimonios" element={<Testimonios />} />
+          <Route path="foro" element={<Foro />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
-        {/* Foro tiene su propio header/layout */}
-        <Route path="/foro" element={<Foro />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

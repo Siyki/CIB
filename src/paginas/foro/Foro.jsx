@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Building2, User, Bell, LogIn, Stethoscope, CheckCircle, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Building2, User, Bell, LogIn, Stethoscope, CheckCircle, UserPlus, Mail, Lock, ChevronDown } from 'lucide-react';
 import { BarraBusqueda } from '../../componentes/comp-foro/BarraBusqueda/BarraBusqueda';
 import { CuadrosInfo } from '../../componentes/comp-foro/CuadrosInfo/CuadrosInfo';
 import { DetallePost } from '../../componentes/comp-foro/DetallePost/DetallePost';
@@ -9,71 +8,203 @@ import { ChatSofia } from '../../componentes/comp-foro/ChatSofia/ChatSofia';
 import { Directorio } from '../../componentes/comp-foro/Directorio/Directorio';
 import { PerfilUsuario } from '../../componentes/comp-foro/PerfilUsuario/PerfilUsuario';
 import { initialPosts } from '../../datos/foroDatos';
-import logoCIB from '../../imagenes/logo_CIBblanco.png';
-import logoEHR from '../../imagenes/logo-enfermedadblanco.png';
 import './Foro.css';
 
-// --- Usuarios de demostración ---
-const USUARIOS = [
-    { id: 'p1', role: 'patient', name: 'Ana Martínez', type: 'Paciente Anónimo' },
-    { id: 'p2', role: 'patient', name: 'Carlos Díaz', type: 'Cuidador' },
-    { id: 'd1', role: 'doctor', name: 'Dra. Elena Gómez', specialty: 'Neumóloga Pediatra' },
-    { id: 'd2', role: 'doctor', name: 'Dr. Carlos Ruiz', specialty: 'Genetista Clínico' }
-];
+// --- Sign Up Hub ---
+const SignUpHub = ({ onSignUp }) => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        role: '',
+        specialty: '',
+    });
+    const [errors, setErrors] = useState({});
+    const [submitted, setSubmitted] = useState(false);
 
-// --- Hub de Login ---
-const LoginHub = ({ onLogin }) => (
-    <div className="foro-login">
-        <div className="foro-login__tarjeta">
-            <div className="foro-login__icono">
-                <CheckCircle size={40} />
-            </div>
-            <h1 className="foro-login__titulo">
-                Foro<span className="foro-login__titulo-acento">Huérfanas</span> Colombia
-            </h1>
-            <p className="foro-login__subtitulo">Selecciona un perfil para ingresar a la plataforma de demostración.</p>
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+        if (errors[name]) {
+            setErrors(prev => ({ ...prev, [name]: '' }));
+        }
+    };
 
-            <div className="foro-login__grupos">
-                <div className="foro-login__grupo">
-                    <h3 className="foro-login__grupo-titulo"><User size={18} /> Pacientes y Familiares</h3>
-                    {USUARIOS.filter(u => u.role === 'patient').map(user => (
-                        <button key={user.id} className="foro-login__btn-usuario" onClick={() => onLogin(user)} type="button">
-                            <div className="foro-login__avatar-p"><User size={22} /></div>
-                            <div>
-                                <p className="foro-login__usuario-nombre">{user.name}</p>
-                                <p className="foro-login__usuario-tipo">{user.type}</p>
-                            </div>
-                        </button>
-                    ))}
+    const validate = () => {
+        const newErrors = {};
+        if (!formData.name.trim()) newErrors.name = 'El nombre es obligatorio';
+        if (!formData.email.trim()) newErrors.email = 'El correo es obligatorio';
+        else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Correo inválido';
+        if (!formData.password) newErrors.password = 'La contraseña es obligatoria';
+        else if (formData.password.length < 6) newErrors.password = 'Mínimo 6 caracteres';
+        if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = 'Las contraseñas no coinciden';
+        if (!formData.role) newErrors.role = 'Selecciona un tipo de usuario';
+        if (formData.role === 'doctor' && !formData.specialty.trim()) newErrors.specialty = 'La especialidad es obligatoria';
+        return newErrors;
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setSubmitted(true);
+        const newErrors = validate();
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            return;
+        }
+
+        const user = {
+            id: 'u_' + Date.now(),
+            role: formData.role,
+            name: formData.name,
+            ...(formData.role === 'doctor'
+                ? { specialty: formData.specialty }
+                : { type: formData.role === 'patient' ? 'Paciente' : 'Cuidador' }
+            ),
+        };
+        // Guardar en localStorage para persistir la sesión
+        localStorage.setItem('foroUser', JSON.stringify(user));
+        onSignUp(user);
+    };
+
+    return (
+        <div className="foro-signup">
+            <div className="foro-signup__tarjeta">
+                <div className="foro-signup__icono">
+                    <UserPlus size={36} />
                 </div>
+                <h2 className="foro-signup__titulo">
+                    Únete a Foro<span className="foro-signup__titulo-acento">Huérfanas</span>
+                </h2>
+                <p className="foro-signup__subtitulo">
+                    Crea tu cuenta para participar en la comunidad, publicar tus dudas y recibir orientación médica verificada.
+                </p>
 
-                <div className="foro-login__grupo">
-                    <h3 className="foro-login__grupo-titulo"><Stethoscope size={18} /> Médicos Especialistas</h3>
-                    {USUARIOS.filter(u => u.role === 'doctor').map(user => (
-                        <button key={user.id} className="foro-login__btn-usuario foro-login__btn-usuario--doctor" onClick={() => onLogin(user)} type="button">
-                            <img
-                                src={`https://ui-avatars.com/api/?name=${user.name.replace(' ', '+')}&background=332a7e&color=fff`}
-                                alt={`Avatar de ${user.name}`}
-                                className="foro-login__avatar-d"
+                <form className="foro-signup__form" onSubmit={handleSubmit} noValidate>
+                    {/* Nombre */}
+                    <div className="foro-signup__campo">
+                        <label className="foro-signup__label" htmlFor="signup-name">
+                            <User size={15} /> Nombre completo
+                        </label>
+                        <input
+                            id="signup-name"
+                            className={`foro-signup__input ${submitted && errors.name ? 'foro-signup__input--error' : ''}`}
+                            type="text"
+                            name="name"
+                            placeholder="Ej: Ana María López"
+                            value={formData.name}
+                            onChange={handleChange}
+                        />
+                        {submitted && errors.name && <span className="foro-signup__error">{errors.name}</span>}
+                    </div>
+
+                    {/* Correo */}
+                    <div className="foro-signup__campo">
+                        <label className="foro-signup__label" htmlFor="signup-email">
+                            <Mail size={15} /> Correo electrónico
+                        </label>
+                        <input
+                            id="signup-email"
+                            className={`foro-signup__input ${submitted && errors.email ? 'foro-signup__input--error' : ''}`}
+                            type="email"
+                            name="email"
+                            placeholder="correo@ejemplo.com"
+                            value={formData.email}
+                            onChange={handleChange}
+                        />
+                        {submitted && errors.email && <span className="foro-signup__error">{errors.email}</span>}
+                    </div>
+
+                    {/* Tipo de usuario */}
+                    <div className="foro-signup__campo">
+                        <label className="foro-signup__label" htmlFor="signup-role">
+                            <ChevronDown size={15} /> Tipo de usuario
+                        </label>
+                        <select
+                            id="signup-role"
+                            className={`foro-signup__input foro-signup__select ${submitted && errors.role ? 'foro-signup__input--error' : ''}`}
+                            name="role"
+                            value={formData.role}
+                            onChange={handleChange}
+                        >
+                            <option value="">Selecciona tu perfil...</option>
+                            <option value="patient">Paciente</option>
+                            <option value="caregiver">Cuidador / Familiar</option>
+                            <option value="doctor">Médico Especialista</option>
+                        </select>
+                        {submitted && errors.role && <span className="foro-signup__error">{errors.role}</span>}
+                    </div>
+
+                    {/* Especialidad (solo médicos) */}
+                    {formData.role === 'doctor' && (
+                        <div className="foro-signup__campo foro-signup__campo--animado">
+                            <label className="foro-signup__label" htmlFor="signup-specialty">
+                                <Stethoscope size={15} /> Especialidad médica
+                            </label>
+                            <input
+                                id="signup-specialty"
+                                className={`foro-signup__input ${submitted && errors.specialty ? 'foro-signup__input--error' : ''}`}
+                                type="text"
+                                name="specialty"
+                                placeholder="Ej: Neumología Pediátrica"
+                                value={formData.specialty}
+                                onChange={handleChange}
                             />
-                            <div>
-                                <p className="foro-login__usuario-nombre">
-                                    {user.name}
-                                    <CheckCircle size={13} className="foro-login__check" />
-                                </p>
-                                <p className="foro-login__usuario-especialidad">{user.specialty}</p>
-                            </div>
-                        </button>
-                    ))}
-                </div>
+                            {submitted && errors.specialty && <span className="foro-signup__error">{errors.specialty}</span>}
+                        </div>
+                    )}
+
+                    {/* Contraseña */}
+                    <div className="foro-signup__fila">
+                        <div className="foro-signup__campo">
+                            <label className="foro-signup__label" htmlFor="signup-password">
+                                <Lock size={15} /> Contraseña
+                            </label>
+                            <input
+                                id="signup-password"
+                                className={`foro-signup__input ${submitted && errors.password ? 'foro-signup__input--error' : ''}`}
+                                type="password"
+                                name="password"
+                                placeholder="Mínimo 6 caracteres"
+                                value={formData.password}
+                                onChange={handleChange}
+                            />
+                            {submitted && errors.password && <span className="foro-signup__error">{errors.password}</span>}
+                        </div>
+                        <div className="foro-signup__campo">
+                            <label className="foro-signup__label" htmlFor="signup-confirm">
+                                <Lock size={15} /> Confirmar contraseña
+                            </label>
+                            <input
+                                id="signup-confirm"
+                                className={`foro-signup__input ${submitted && errors.confirmPassword ? 'foro-signup__input--error' : ''}`}
+                                type="password"
+                                name="confirmPassword"
+                                placeholder="Repite tu contraseña"
+                                value={formData.confirmPassword}
+                                onChange={handleChange}
+                            />
+                            {submitted && errors.confirmPassword && <span className="foro-signup__error">{errors.confirmPassword}</span>}
+                        </div>
+                    </div>
+
+                    <button type="submit" className="foro-signup__btn-submit">
+                        <UserPlus size={18} />
+                        Crear mi cuenta
+                    </button>
+                </form>
             </div>
         </div>
-    </div>
-);
+    );
+};
 
 // --- Página Principal del Foro ---
 export const Foro = () => {
-    const [currentUser, setCurrentUser] = useState(null);
+    const [currentUser, setCurrentUser] = useState(() => {
+        // Restaurar usuario desde localStorage si existe
+        const saved = localStorage.getItem('foroUser');
+        return saved ? JSON.parse(saved) : null;
+    });
     const [posts, setPosts] = useState(initialPosts);
     const [currentView, setCurrentView] = useState('home'); // 'home' | 'detail' | 'profile' | 'directory'
     const [selectedPost, setSelectedPost] = useState(null);
@@ -97,7 +228,7 @@ export const Foro = () => {
     }, [currentView]);
 
     if (!currentUser) {
-        return <LoginHub onLogin={setCurrentUser} />;
+        return <SignUpHub onSignUp={setCurrentUser} />;
     }
 
     // --- HANDLERS ---
@@ -112,6 +243,7 @@ export const Foro = () => {
     };
 
     const handleLogout = () => {
+        localStorage.removeItem('foroUser');
         setCurrentUser(null);
         setCurrentView('home');
     };
@@ -195,44 +327,25 @@ export const Foro = () => {
 
     return (
         <div className={`foro-pagina ${isDoctor ? 'foro-pagina--medico' : ''}`}>
-            {/* Header propio del foro */}
-            <header className="foro-header">
-                <div className="foro-header__contenido">
-
-                    {/* Logo CIB izquierda + botón volver */}
-                    <div className="foro-header__izquierda">
-                        <div className="foro-header__logos">
-                            <Link to="/" className="foro-header__logo-link" aria-label="Volver al sitio principal CIB">
-                                <img src={logoCIB} alt="Logo CIB" className="foro-header__logo-cib" />
-                            </Link>
-                        </div>
-
-                        {/* Botón volver al CIB */}
-                        <Link
-                            to="/"
-                            className="foro-header__btn-volver"
-                            aria-label="Volver a la página principal del CIB"
-                        >
-                            <ArrowLeft size={15} /> Volver al CIB
-                        </Link>
-
-                        {/* Separador */}
-                        <span className="foro-header__separador" aria-hidden="true">|</span>
-
-                        {/* Nombre del foro */}
+            {/* Sub-navegación del foro (complementa al Header principal) */}
+            <div className="foro-subnav">
+                <div className="foro-subnav__contenido">
+                    {/* Izquierda: nombre del foro + directorio */}
+                    <div className="foro-subnav__izquierda">
                         <button
-                            className="foro-header__nombre-foro"
+                            className="foro-subnav__nombre-foro"
                             onClick={handleBackHome}
                             type="button"
                             aria-label="Ir al inicio del foro"
                         >
-                            Foro<span className="foro-header__nombre-acento">Huérfanas</span>
+                            Foro<span className="foro-subnav__nombre-acento">Huérfanas</span>
                         </button>
 
-                        {/* Directorio */}
+                        <span className="foro-subnav__separador" aria-hidden="true">|</span>
+
                         <button
                             id="btn-directorio"
-                            className={`foro-header__btn-nav ${currentView === 'directory' ? 'foro-header__btn-nav--activo' : ''}`}
+                            className={`foro-subnav__btn-nav ${currentView === 'directory' ? 'foro-subnav__btn-nav--activo' : ''}`}
                             onClick={() => setCurrentView('directory')}
                             type="button"
                         >
@@ -240,28 +353,28 @@ export const Foro = () => {
                         </button>
                     </div>
 
-                    {/* Controles derecha */}
-                    <div className="foro-header__derecha">
+                    {/* Derecha: notificaciones + perfil + logout */}
+                    <div className="foro-subnav__derecha">
                         {/* Notificaciones */}
-                        <div className="foro-header__notificaciones">
+                        <div className="foro-subnav__notificaciones">
                             <button
                                 id="btn-notificaciones"
-                                className="foro-header__btn-icono"
+                                className="foro-subnav__btn-icono"
                                 onClick={() => setShowNotifications(prev => !prev)}
                                 type="button"
                                 aria-label="Ver notificaciones"
                             >
-                                <Bell size={20} />
+                                <Bell size={18} />
                                 {notifications.some(n => !n.read) && (
-                                    <span className="foro-header__notif-badge" aria-label="Tienes notificaciones sin leer" />
+                                    <span className="foro-subnav__notif-badge" aria-label="Tienes notificaciones sin leer" />
                                 )}
                             </button>
 
                             {showNotifications && (
-                                <div className="foro-header__notif-panel" role="region" aria-label="Notificaciones">
-                                    <div className="foro-header__notif-titulo">Notificaciones</div>
+                                <div className="foro-subnav__notif-panel" role="region" aria-label="Notificaciones">
+                                    <div className="foro-subnav__notif-titulo">Notificaciones</div>
                                     {notifications.map(notif => (
-                                        <div key={notif.id} className={`foro-header__notif-item ${!notif.read ? 'foro-header__notif-item--nueva' : ''}`}>
+                                        <div key={notif.id} className={`foro-subnav__notif-item ${!notif.read ? 'foro-subnav__notif-item--nueva' : ''}`}>
                                             <p>{notif.text}</p>
                                             <span>{notif.time}</span>
                                         </div>
@@ -273,7 +386,7 @@ export const Foro = () => {
                         {/* Perfil */}
                         <button
                             id="btn-perfil"
-                            className="foro-header__btn-perfil"
+                            className="foro-subnav__btn-perfil"
                             onClick={() => setCurrentView('profile')}
                             type="button"
                             aria-label="Ver perfil"
@@ -282,30 +395,27 @@ export const Foro = () => {
                                 <img
                                     src={`https://ui-avatars.com/api/?name=${currentUser.name.replace(' ', '+')}&background=332a7e&color=fff`}
                                     alt="Avatar"
-                                    className="foro-header__avatar-medico"
+                                    className="foro-subnav__avatar-medico"
                                 />
                             ) : (
-                                <div className="foro-header__avatar-p"><User size={18} /></div>
+                                <div className="foro-subnav__avatar-p"><User size={16} /></div>
                             )}
-                            <span className="foro-header__usuario-nombre">{currentUser.name}</span>
+                            <span className="foro-subnav__usuario-nombre">{currentUser.name}</span>
                         </button>
 
-                        {/* Cambiar perfil */}
+                        {/* Cambiar perfil / cerrar sesión */}
                         <button
-                            className="foro-header__btn-logout"
+                            className="foro-subnav__btn-logout"
                             onClick={handleLogout}
-                            title="Cambiar perfil"
-                            aria-label="Cambiar perfil"
+                            title="Cerrar sesión"
+                            aria-label="Cerrar sesión"
                             type="button"
                         >
-                            <LogIn size={18} />
+                            <LogIn size={16} />
                         </button>
-
-                        {/* Logo EHR derecha */}
-                        <img src={logoEHR} alt="Logo Enfermedades Huérfanas" className="foro-header__logo-ehr" />
                     </div>
                 </div>
-            </header>
+            </div>
 
             {/* Contenido principal */}
             <main className="foro-main" id="foro-main-content">

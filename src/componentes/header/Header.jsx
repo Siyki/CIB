@@ -2,10 +2,25 @@ import React from "react"
 import "./Header.css"
 import logo_ehr from "../../imagenes/logo-enfermedadblanco.png"
 import logo_cib from "../../imagenes/logo_CIBblanco.png"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 
 export const Header = () => {
+  const location = useLocation()
+
+  const enlaces = [
+    { to: "/", label: "INICIO", tabIndex: 2 },
+    { to: "/conocenos", label: "CONÓCENOS", tabIndex: 3 },
+    { to: "/inscribete", label: "INSCRÍBETE", tabIndex: 1 },
+    { to: "/testimonios", label: "TESTIMONIOS", tabIndex: 5 },
+    { to: "/foro", label: "FORO", tabIndex: 4 },
+  ]
+
+  const isActive = (path) => {
+    if (path === "/") return location.pathname === "/"
+    return location.pathname.startsWith(path)
+  }
+
   return (
     <header className="encabezado-principal">
       <nav className="navbar navbar-expand-lg">
@@ -33,11 +48,16 @@ export const Header = () => {
           {/* Menú */}
           <div className="collapse navbar-collapse contenedor-menu" id="menu-navegacion">
             <div className="navbar-nav menu-navegacion">
-              <Link className="nav-link enlace-menu" to="/" tabIndex={2}>INICIO</Link>
-              <Link className="nav-link enlace-menu" to="/conocenos" tabIndex={3}>CONÓCENOS</Link>
-              <Link className="nav-link enlace-menu" to="/inscribete" tabIndex={1}>INSCRÍBETE</Link>
-              <Link className="nav-link enlace-menu" to="/testimonios" tabIndex={5}>TESTIMONIOS</Link>
-              <Link className="nav-link enlace-menu" to="/foro" tabIndex={4}>FORO</Link>
+              {enlaces.map((enlace) => (
+                <Link
+                  key={enlace.to}
+                  className={`nav-link enlace-menu ${isActive(enlace.to) ? 'enlace-menu--activo' : ''}`}
+                  to={enlace.to}
+                  tabIndex={enlace.tabIndex}
+                >
+                  {enlace.label}
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -52,6 +72,7 @@ export const Header = () => {
     </header>
   )
 }
+
 
 
 
