@@ -5,7 +5,7 @@ import { Rectangulo } from '../../componentes/rectangulo/Rectangulo'
 import { Estadisticas } from '../../componentes/estadisticas/Estadisticas'
 import { IconoTexto } from '../../componentes/iconos/IconoTexto'
 import { CTA } from '../../componentes/cta/CTA'
-import medicomanosImg from '../../imagenes/medico-manos.jpg'
+import medicomanosImg from '../../imagenes/medico-manos.webp'
 import { datosMunicipios } from '../../datos/estadisticasDatos'
 
 export const Conocenos = () => {

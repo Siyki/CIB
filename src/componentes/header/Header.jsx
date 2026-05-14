@@ -1,7 +1,7 @@
 import React from "react"
 import "./Header.css"
-import logo_ehr from "../../imagenes/logo-enfermedadblanco.png"
-import logo_cib from "../../imagenes/logo_CIBblanco.png"
+import logo_ehr from "../../imagenes/logo-enfermedadblanco.webp"
+import logo_cib from "../../imagenes/logo_CIBblanco.webp"
 import { Link, useLocation } from "react-router-dom"
 
 

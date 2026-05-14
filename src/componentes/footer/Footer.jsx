@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import logoCIBblanco from "../../imagenes/logo_CIBblanco.png"
+import logoCIBblanco from "../../imagenes/logo_CIBblanco.webp"
 import "./Footer.css"
 
 export const Footer = () => {

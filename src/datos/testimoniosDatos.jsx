@@ -32,14 +32,14 @@ export const seccionesHistorias = [
     id: "diagnostico",
     titulo: "La Búsqueda de un Diagnóstico",
     texto: "Años de incertidumbre hasta hallar una respuesta. La travesía de muchas familias comienza con preguntas sin respuestas claras, enfrentando un sistema que a menudo desconoce estas patologías.",
-    imagen: "seccion_diagnostico.png",
+    imagen: "seccion_diagnostico.webp",
     orden: "normal"
   },
   {
     id: "vivir",
     titulo: "Vivir con una Enfermedad Rara",
     texto: "Los desafíos y las pequeñas victorias de cada día. Aprender a convivir con una condición única requiere resiliencia, apoyo y una comunidad que comprenda las necesidades específicas de cada paciente.",
-    imagen: "seccion_vivir.png",
+    imagen: "seccion_vivir.webp",
     orden: "inverso"
   }
 ];

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Inscribete.css'
 import { Rectangulo } from '../../componentes/rectangulo/Rectangulo'
 import { BannerEstatico } from '../../componentes/bannerEstatico/BannerEstatico'
-import bannerImagen from '../../imagenes/banner-medico-cosas.jpg'
+import bannerImagen from '../../imagenes/banner-medico-cosas.webp'
 
 export const Inscribete = () => {
   const [formData, setFormData] = useState({

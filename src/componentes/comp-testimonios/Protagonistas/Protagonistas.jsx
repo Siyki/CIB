@@ -1,9 +1,9 @@
 
 import React from 'react';
 import './Protagonistas.css';
-import lauraImg from '../../../assets/laura.png';
-import carlosImg from '../../../assets/carlos.png';
-import anaImg from '../../../assets/ana.png';
+import lauraImg from '../../../assets/laura.webp';
+import carlosImg from '../../../assets/carlos.webp';
+import anaImg from '../../../assets/ana.webp';
 
 export const Protagonistas = ({ items }) => {
     const images = {

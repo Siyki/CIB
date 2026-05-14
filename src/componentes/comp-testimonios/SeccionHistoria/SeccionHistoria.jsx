@@ -1,13 +1,13 @@
 
 import React from 'react';
 import './SeccionHistoria.css';
-import seccionDiagnostico from '../../../assets/seccion_diagnostico.png';
-import seccionVivir from '../../../assets/seccion_vivir.png';
+import seccionDiagnostico from '../../../assets/seccion_diagnostico.webp';
+import seccionVivir from '../../../assets/seccion_vivir.webp';
 
 export const SeccionHistoria = ({ data }) => {
     const images = {
-        'seccion_diagnostico.png': seccionDiagnostico,
-        'seccion_vivir.png': seccionVivir
+        'seccion_diagnostico.webp': seccionDiagnostico,
+        'seccion_vivir.webp': seccionVivir
     };
 
     return (

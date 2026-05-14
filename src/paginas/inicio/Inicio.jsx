@@ -1,7 +1,7 @@
 import React from "react"
 import { Rectangulo } from '../../componentes/rectangulo/Rectangulo'
 import { Banner } from '../../componentes/banner/Banner'
-import imagenHero from "../../imagenes/imagen_hero1.png"
+import imagenHero from "../../imagenes/imagen_hero1.webp"
 import { imagenesBanner } from '../../datos/bannerDatos'
 import { Hero } from '../../componentes/hero/Hero'
 import './Inicio.css'

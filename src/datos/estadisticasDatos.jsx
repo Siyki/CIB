@@ -1,6 +1,6 @@
-import sanJeronimoImg from '../imagenes/sanjerónimo.png'
-import santaFeImg from '../imagenes/santafe.png'
-import sopetranImg from '../imagenes/sopetran.png'
+import sanJeronimoImg from '../imagenes/sanjerónimo.webp'
+import santaFeImg from '../imagenes/santafe.webp'
+import sopetranImg from '../imagenes/sopetran.webp'
 
 export const datosMunicipios = [
   {

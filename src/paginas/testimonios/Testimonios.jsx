@@ -18,7 +18,7 @@ import {
     testimonioDestacado 
 } from '../../datos/testimoniosDatos';
 
-import heroBg from '../../assets/hero_testimonios.png';
+import heroBg from '../../assets/hero_testimonios.webp';
 
 export const Testimonios = () => {
     useEffect(() => {
